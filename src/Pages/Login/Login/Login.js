@@ -8,6 +8,7 @@ import { async } from '@firebase/util';
 import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Login = () => {
     const emailRef = useRef(' ');
@@ -59,12 +60,13 @@ const Login = () => {
             toast('Sent email');
         }
         else{
-            toast('please enter your email address');
+            toast('please enter your email address'); 
         }
     }
 
     return (
         <div className='container w-50 mx-auto'>
+            <PageTitle title='Login'></PageTitle>
             <h2 className='text-primary text-center mt-5'>place log in</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
