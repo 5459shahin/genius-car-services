@@ -26,10 +26,10 @@ const ManageService = () => {
         <div className='w-50 mx-auto'>
             <h2> Manage Your Services</h2>
             {
-                services.map(service => <dive
+                services.map(service => <div
                 key={service._id}>
                     <h5>{service.name} <button onClick={() => handleDelete (service._id)}>X</button> </h5>
-                </dive>)
+                </div>)
             }
         </div>
     );
