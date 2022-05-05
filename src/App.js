@@ -1,5 +1,5 @@
 
-import { toast, ToastContainer } from 'react-toastify';
+import {  ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -16,6 +16,7 @@ import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import Order from './Pages/Order/Order';
 
 
 function App() {
@@ -45,6 +46,12 @@ function App() {
         <Route path='/manage' element={
           <RequireAuth>
             <ManageService></ManageService>
+          </RequireAuth>
+        }></Route>
+        {/* -------------- */}
+        <Route path='/orders' element={
+          <RequireAuth>
+            <Order></Order>
           </RequireAuth>
         }></Route>
 
