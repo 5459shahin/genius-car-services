@@ -5,11 +5,13 @@ import { useState } from 'react';
 import useServicesDetail from '../../../../hooks/useServiceDetail';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
+import axios from 'axios';
 
 const Checkout = () => {
     const {serviceId} = useParams();
     const [service] = useServicesDetail(serviceId); 
     const [user]  = useAuthState(auth);
+
    
    /*  const [user, setUser] = useState({
         name: 'Akbar the great',
@@ -36,6 +38,15 @@ const Checkout = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
+        axios.post('http://localhost:5000/order', order)
+        .then(response => {
+            console.log(response);
+            const {data} = response;
+            if(data.insertedId){
+                toString('Your Order is booked');
+                event.target.reset();
+            }
+        })
     }
     return (
         <div className='w-50 mx-auto'>
@@ -45,9 +56,9 @@ const Checkout = () => {
                 <br />
                 <input className='w-100 mb-2' type="email" value={user.email} name = "email"  placeholder='Email' required readOnly/>
                 <br />
-                <input className='w-100 mb-2' type="text" value = {service.name} name="service"  placeholder='service'required/>
+                <input className='w-100 mb-2' type="text" value = {service.name} name="service"  placeholder='service' required readOnly/>
                 <br />
-                <input className='w-100 mb-2' type="text" /* onChange ={handleAddressChang}  */name="address"  placeholder='address'required/>
+                <input className='w-100 mb-2' type="text" name="address"  placeholder='address'required/>
                 <br />
                 <input className='w-100 mb-2' type ="number" name ="phone"  placeholder='phone'required/>
                 <br />

@@ -7,7 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { async } from '@firebase/util';
 import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+/* import 'react-toastify/dist/ReactToastify.css' ;*/
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Login = () => {
@@ -15,9 +15,9 @@ const Login = () => {
     const passwordRef = useRef(' ')
     const navigate = useNavigate();
     const location = useLocation();
-    let errorElement;
-
+    
     let from = location.state?.from?.pathname || "/";
+    let errorElement;
 
     const [
         signInWithEmailAndPassword,

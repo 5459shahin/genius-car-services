@@ -5,7 +5,6 @@ const useServicesDetail = serviceId =>{
 
     useEffect( () => {
         const url = `http://localhost:5000/service/${serviceId}`;
-        console.log(url);
         fetch(url)
         .then(res => res.json())
         .then(data => setService(data));
